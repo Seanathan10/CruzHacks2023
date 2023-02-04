@@ -1,9 +1,71 @@
-import React from 'react'
+import React from 'react';
 
-function results() {
-  return (
-    <div>results</div>
-  )
+import { AppBar } from '@mui/material';
+import { Toolbar } from '@mui/material';
+import { IconButton } from '@mui/material';
+import { Typography } from '@mui/material';
+
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
+import { createTheme } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
+
+import './Results.css';
+
+function UpperBar() {
+    const nav = useNavigate();
+
+    return(
+        <div>
+            <AppBar position="static" elevation={ 10 } enableColorOnDark>
+                <Toolbar variant="regular">
+                    <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={ () => nav( "/" ) }>
+                        <ArrowBackIcon/>
+                    </IconButton>
+                    
+                    <Typography variant="h6" color="inherit" component="div">
+                        2 Week Plan
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        </div>
+    )
 }
 
-export default results
+
+const darkTheme = createTheme({
+    palette: {
+      mode: 'light',
+      primary: {
+        main: '#011638',
+      },
+    },
+  });
+
+function Results( props ) {
+    const location = useLocation();
+    console.log( location.state )
+
+    var amount = 0;
+
+    if( !isNaN( location.state ) ) {
+        amount = location.state
+    } else {
+        amount = "Not a number"
+    }
+
+    return (
+        <ThemeProvider theme={ darkTheme }>
+            <UpperBar/>
+
+            <div className='container'>
+                <p className='text'>{ amount }</p>
+            </div>
+            
+        </ThemeProvider>
+    )
+}
+
+export default Results

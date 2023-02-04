@@ -1,0 +1,21 @@
+.container {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100vw;
+    height: 100vh;
+  
+    margin: 0;
+    padding: 0;
+    /* background: linear-gradient( 45deg, yellow, blue ); */
+  
+    background-color: #011638;
+    overflow: hidden;
+}
+
+.text {
+    color: white;
+    font-size: 50px;
+    font-family: "Roboto";
+}

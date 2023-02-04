@@ -17,7 +17,7 @@
   /* background: linear-gradient( 45deg, yellow, blue ); */
 
   background-color: #011638;
-  
+  overflow: hidden;
 }
 
 .background::before {
