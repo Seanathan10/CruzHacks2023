@@ -2,7 +2,7 @@ import './App.css';
 
 import { Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
-import Results from './components/Results.jsx';
+import Results from './components/results.jsx';
 import MainPage from './components/MainPage.jsx';
 
 function App() {
