@@ -6,11 +6,15 @@ import "../components/MainPage.jsx";
 import { Button } from '@mui/material';
 import { styled } from '@mui/material';
 import { TextField } from '@mui/material';
+import { Checkbox } from '@mui/material';
+import { FormGroup } from '@mui/material';
+import { FormControlLabel } from '@mui/material';
 
 import { useNavigate } from 'react-router-dom';
 
 import "../App.css";
 
+import { blue } from '@mui/material/colors';
 
 const StyledField = styled ( TextField ) ( {
   // color of the text being entered
@@ -59,28 +63,70 @@ function MainPage() {
       <div className="container">
 
         <div className='title'>
-          <p className='title_text'>Slug Points Budgeting</p>
+          <p className='title_text'>Title</p>
         </div>
 
 
-        <div className='content'>
-          <p className='PointsLabel'>Enter the amount of slug points you have:</p>
-
-          <div className='s3'>
-              <StyledField
-                onChange={ (event) => { SetAmount( event.target.value ) } }
-                className="text"
-                id="outlined-basic"
-                label="Outlined"
-                variant="outlined"
-                style={ { color: "#EEC643" } }
-                sx={ { margin: 1 } }/>
-              
-              {/* <button onClick={ () => console.log( Amount ) }>print</button> */}
-              
-              <Button onClick={ () => nav( "results", { state: Amount } ) } variant='contained' className='MUIButton' style={{ backgroundColor: "#0D21A1", fontFamily: "Roboto", margin: 0 }}>Calculate</Button>
-          </div>
+        <div className='description'>
+          <p className='PointsLabel'>This will be the description of the website</p>
         </div> 
+        
+        <div className='second_division'>
+
+          <div className='left_box'>
+            <StyledField
+              onChange={ (event) => { SetAmount( event.target.value ) } }
+              className="text"
+              id="outlined-basic"
+              label="Outlined"
+              variant="outlined"
+              style={ { color: "#EEC643" } }
+              sx={ { margin: 1 } }
+              />
+              
+            <Button onClick={ () => nav( "results", { state: Amount } ) } variant='contained' className='MUIButton' style={ { backgroundColor: "#0D21A1", fontFamily: "Roboto", margin: 0 } } >Calculate</Button>
+          </div>
+
+          <div className='spacer'/>
+
+
+          <div className='right_box'>
+            <FormGroup>
+            <FormControlLabel
+                control={ <Checkbox
+                              sx={{
+                                color: blue[ 900 ],
+                                '&.Mui-checked': {
+                                    color: blue[ 900 ],
+                                  },
+                                }}/> } label="East Campus" >
+                </FormControlLabel>
+
+              <FormControlLabel
+                control={ <Checkbox
+                              sx={{
+                                color: blue[ 900 ],
+                                '&.Mui-checked': {
+                                    color: blue[ 900 ],
+                                  },
+                                }}/> } label="West Campus" >
+                </FormControlLabel>
+
+              <FormControlLabel
+                control={ <Checkbox
+                              sx={{
+                                color: blue[ 900 ],
+                                '&.Mui-checked': {
+                                    color: blue[ 900 ],
+                                  },
+                                }}/> } label="Porter Market Haul" >
+                </FormControlLabel>
+
+            </FormGroup>
+
+          </div>
+        </div>
+      
       </div>
     </div>
   )

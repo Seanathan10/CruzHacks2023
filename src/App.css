@@ -41,8 +41,8 @@
   padding: 0;
 }
 
-.content {
-  margin-bottom: 15rem;
+.description {
+  /* margin-bottom: 15rem; */
   /* border: 5px solid black; */
   /* background-color: #0D21A1; */
   background-color: white;
@@ -51,12 +51,6 @@
   padding: 2rem;
 
   display: grid;
-  align-items: center;
-  justify-content: center;
-}
-
-.s3 {
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -77,4 +71,38 @@
   font-family: "Roboto";
   font-size: 50px;
   color: #EEC643;
+}
+
+.spacer {
+  margin: 1.5rem;
+}
+
+.EntryBox {
+  background-color: white;
+  display: flex;
+}
+
+.second_division {
+  display: flex;
+}
+
+.left_box {
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.0rem;
+  border-radius: 1.5rem;
+}
+
+.right_box {
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.0rem;
+  border-radius: 1.5rem;
 }
