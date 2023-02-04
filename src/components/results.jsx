@@ -12,8 +12,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-import { createTheme } from '@mui/material';
-import { ThemeProvider } from '@mui/material';
+// import { createTheme } from '@mui/material';
+// import { ThemeProvider } from '@mui/material';
 
 import './Results.css';
 
@@ -24,7 +24,7 @@ function UpperBar() {
 
     return(
         <div>
-            <AppBar position="static" elevation={ 10 } enableColorOnDark>
+            <AppBar position="static" elevation={ 0 } color="transparent">
                 <Toolbar variant="regular">
                     <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={ () => nav( "/" ) }>
                         <ArrowBackIcon/>
@@ -40,14 +40,15 @@ function UpperBar() {
 }
 
 
-const darkTheme = createTheme({
-    palette: {
-      mode: 'light',
-      primary: {
-        main: '#011638',
-      },
-    },
-  });
+// const darkTheme = createTheme({
+//     palette: {
+//       mode: 'light',
+//       primary: {
+//         main: '#011638',
+//       },
+//     },
+//   });
+
 
 function Results() {
     const nav = useNavigate();
@@ -72,19 +73,30 @@ function Results() {
             amount = "Not a number"
         }
     }
+    
+    let Today = new Date();
+    let EndDate = new Date( "03/24/2023" );
+
+    console.log( Today );
+    console.log( EndDate );
+
+    let difference = EndDate.getTime() - Today.getTime();
+    let diff_days = difference / (1000 * 3600 * 24);
+    console.log( diff_days );
+
+    // Mar 17 2023
 
     return (
-        <ThemeProvider theme={ darkTheme }>
+        <>
             <UpperBar/>
-
             <div className='container'>
                 <Stack spacing={ 1 }>
                     <p className='text'>{ amount }</p>
+                    <p className='text'>{ amount / diff_days }</p>
                     { CanProceed ? <></> : <Button variant='contained' style={{ color: "black", backgroundColor: "#EEC643", fontFamily: "Roboto", margin: 0 }} startIcon={ <ArrowBackIcon/> } onClick={ () => nav( "/" ) }>Go back</Button> }
                 </Stack>
             </div>
-            
-        </ThemeProvider>
+        </>
     )
 }
 

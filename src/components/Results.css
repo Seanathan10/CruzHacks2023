@@ -6,12 +6,13 @@
     width: 100vw;
     height: 100vh;
   
-    margin: 0;
-    padding: 0;
+
+    /* background-color: #4d944b; */
+    /* background-color: #4d4b94; */
     /* background: linear-gradient( 45deg, yellow, blue ); */
-  
-    background-color: #011638;
-    overflow: hidden;
+    background-image: url( "https://freepngimg.com/download/artwork/177141-photos-vector-picsart-forest-hd-image-free.png" ), linear-gradient( 360deg, rgb(249, 230, 103), rgba(59, 124, 244, 0.924) );
+    background-position: bottom;
+    background-repeat: no-repeat;
 }
 
 .text {

@@ -43,11 +43,11 @@ const StyledField = styled ( TextField ) ( {
     },
       // outline colour when hovering
     '&:hover fieldset': {
-      borderColor: 'red',
+      borderColor: '#162F65',
     },
     // outline colour when focused
     '&.Mui-focused fieldset': {
-      borderColor: 'green',
+      borderColor: '#011638',
     },
   },
 });
@@ -56,35 +56,74 @@ const StyledField = styled ( TextField ) ( {
 
 function MainPage() {
   const nav = useNavigate();
-  const [ Amount, SetAmount ] = useState();
+  const [ Amount, SetAmount ] = useState( false );
+  const [ Porter, SetPorter ] = useState( false );
+  const [ East, SetEast ] = useState( false );
+  const [ West, SetWest ] = useState( false );
+
+  function EastChange() {
+    SetEast( !East );
+  }
+
+  function WestChange() {
+    SetWest( !West );
+  }
+
+  function PorterChange() {
+    SetPorter( !Porter );
+  }
+
 
   return (
     <div className='background'>
       <div className="container">
 
+
         <div className='title'>
-          <p className='title_text'>Title</p>
+          <img src="https://cdn.discordapp.com/attachments/1068431730815553546/1071553350664982558/SDS_UCSantaCruz_RedwoodSlug_WhiteGround.png" alt="" width={ 200 }/>
         </div>
 
 
         <div className='description'>
-          <p className='PointsLabel'>This will be the description of the website</p>
+          {/* <p className='PointsLabel'>This will be the description of the website</p> */}
+          <p className='title_text'>Slug Points Budgeting</p>
         </div> 
         
         <div className='second_division'>
 
           <div className='left_box'>
+          
+
+            
+            <div className='inputs'>
+              <StyledField
+                onChange={ (event) => { SetAmount( event.target.value ) } }
+                className="text"
+                id="outlined-basic"
+                label="Remaining Slug Points"
+                variant="outlined"
+                style={ { color: "#EEC643" } }
+                sx={ { margin: 1 } }
+                />
+
             <StyledField
               onChange={ (event) => { SetAmount( event.target.value ) } }
               className="text"
               id="outlined-basic"
-              label="Outlined"
+              label="Last day (optional)"
               variant="outlined"
               style={ { color: "#EEC643" } }
               sx={ { margin: 1 } }
               />
               
-            <Button onClick={ () => nav( "results", { state: Amount } ) } variant='contained' className='MUIButton' style={ { backgroundColor: "#0D21A1", fontFamily: "Roboto", margin: 0 } } >Calculate</Button>
+              <div className='calculate_Button'>
+                <Button onClick={ () => nav( "results", { state: Amount } ) } variant='contained' className='MUIButton' style={ { backgroundColor: "#0D21A1", fontFamily: "Roboto", margin: 0 } } >Calculate</Button>
+              </div>
+            </div>
+
+            {/* <button onClick={ ShowAll } >PRINT</button> */}
+              
+          
           </div>
 
           <div className='spacer'/>
@@ -92,18 +131,21 @@ function MainPage() {
 
           <div className='right_box'>
             <FormGroup>
-            <FormControlLabel
+            <p className='included'>Included Areas:</p>
+              <FormControlLabel
                 control={ <Checkbox
+                onChange={ EastChange }
                               sx={{
                                 color: blue[ 900 ],
                                 '&.Mui-checked': {
                                     color: blue[ 900 ],
                                   },
                                 }}/> } label="East Campus" >
-                </FormControlLabel>
+              </FormControlLabel>
 
               <FormControlLabel
                 control={ <Checkbox
+                onChange={ WestChange }
                               sx={{
                                 color: blue[ 900 ],
                                 '&.Mui-checked': {
@@ -114,13 +156,14 @@ function MainPage() {
 
               <FormControlLabel
                 control={ <Checkbox
+                onChange={ PorterChange }
                               sx={{
                                 color: blue[ 900 ],
                                 '&.Mui-checked': {
                                     color: blue[ 900 ],
                                   },
                                 }}/> } label="Porter Market Haul" >
-                </FormControlLabel>
+              </FormControlLabel>
 
             </FormGroup>
 
