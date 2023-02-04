@@ -49,7 +49,7 @@ const darkTheme = createTheme({
     },
   });
 
-function Results( props ) {
+function Results() {
     const nav = useNavigate();
     const location = useLocation();
     console.log( location.state )
@@ -71,7 +71,6 @@ function Results( props ) {
         } else {
             amount = "Not a number"
         }
-
     }
 
     return (
