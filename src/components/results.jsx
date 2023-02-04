@@ -1,18 +1,23 @@
 import React from 'react';
 
+import { Stack } from '@mui/material';
+import { Button } from '@mui/material';
 import { AppBar } from '@mui/material';
 import { Toolbar } from '@mui/material';
 import { IconButton } from '@mui/material';
 import { Typography } from '@mui/material';
 
-import { useLocation, useNavigate } from 'react-router-dom';
-
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@mui/material';
 
 import './Results.css';
+
+
 
 function UpperBar() {
     const nav = useNavigate();
@@ -45,15 +50,28 @@ const darkTheme = createTheme({
   });
 
 function Results( props ) {
+    const nav = useNavigate();
     const location = useLocation();
     console.log( location.state )
 
     var amount = 0;
+    var CanProceed = false
 
     if( !isNaN( location.state ) ) {
-        amount = location.state
+        if( location.state !== null && location.state !== "" ) {
+            amount = location.state
+            CanProceed = true
+        } else {
+            amount = "No number entered"
+        }
     } else {
-        amount = "Not a number"
+        var a = String( location.state );
+        if( a.includes( "," ) ) {
+            amount = "Please do not use commas"
+        } else {
+            amount = "Not a number"
+        }
+
     }
 
     return (
@@ -61,7 +79,10 @@ function Results( props ) {
             <UpperBar/>
 
             <div className='container'>
-                <p className='text'>{ amount }</p>
+                <Stack spacing={ 1 }>
+                    <p className='text'>{ amount }</p>
+                    { CanProceed ? <></> : <Button variant='contained' style={{ color: "black", backgroundColor: "#EEC643", fontFamily: "Roboto", margin: 0 }} startIcon={ <ArrowBackIcon/> } onClick={ () => nav( "/" ) }>Go back</Button> }
+                </Stack>
             </div>
             
         </ThemeProvider>
