@@ -12,6 +12,14 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableRow from '@mui/material/TableRow';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableContainer from '@mui/material/TableContainer';
+
 // import { createTheme } from '@mui/material';
 // import { ThemeProvider } from '@mui/material';
 
@@ -103,6 +111,27 @@ function Results() {
     
     // Mar 17 2023
 
+    // var the_table = document.getElementById( "DiningTable" );
+    // var rows = the_table.rows.length;
+
+    // for( var i = 0; i < rows; i++ ) {
+    //     var Cells = the_table.rows.item( i ).cells;
+    //     var cellLength = Cells.length;
+
+    //     for( var j = 0; j < cellLength; j++ ){
+    //         var cellVal = Cells.item( j ).innerHTML;
+    //     }
+    // }
+    
+    var table = document.getElementById( "DiningTable" );
+
+    for( var i = 0, row; row = table.rows[i]; i++ ) {
+        for( var j = 0, col; col = row.cells[j]; j++ ){
+        }
+    }
+
+
+
     return (
         <>
             <UpperBar/>
@@ -127,7 +156,7 @@ function Results() {
                             </div>
                        
 
-                            <table border="1" className="Calendar" >
+                            <table border="1" className="Calendar" id="DiningTable">
                                 <tr>
                                     <td>&nbsp;</td>
                                     <th>Sunday</th>
@@ -137,16 +166,6 @@ function Results() {
                                     <th>Thursday</th>
                                     <th>Friday</th>
                                     <th>Saturday</th>
-                                </tr>
-                                <tr>
-                                    <th>Breakfast</th>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <th>Lunch</th>

@@ -164,7 +164,7 @@ function MainPage() {
                                 '&.Mui-checked': {
                                     color: blue[ 900 ],
                                   },
-                                }}/> } label="2 Meals Daily" >
+                                }}/> } label="3 Meals Daily" >
               </FormControlLabel>
               
               <FormControlLabel
