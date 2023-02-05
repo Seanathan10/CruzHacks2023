@@ -122,13 +122,17 @@ function Results() {
     //         var cellVal = Cells.item( j ).innerHTML;
     //     }
     // }
-    
-    var table = document.getElementById( "DiningTable" );
 
-    for( var i = 0, row; row = table.rows[i]; i++ ) {
-        for( var j = 0, col; col = row.cells[j]; j++ ){
-        }
+    function createData( name, sun, mon, tue, wed, thurs, fri, sat ) {
+        return { name, sun, mon, tue, wed, thurs, fri, sat };
     }
+
+    
+      
+    const rows = [
+        createData( "Meal 1", ),
+        createData( 'Meal 2', ),
+    ];
 
 
 
@@ -154,40 +158,45 @@ function Results() {
                                 There are { days_remaining } days until the term ends.
 
                             </div>
-                       
 
-                            <table border="1" className="Calendar" id="DiningTable">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <th>Sunday</th>
-                                    <th>Monday</th>
-                                    <th>Tuesday</th>
-                                    <th>Wednesday</th>
-                                    <th>Thursday</th>
-                                    <th>Friday</th>
-                                    <th>Saturday</th>
-                                </tr>
-                                <tr>
-                                    <th>Lunch</th>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <th>Dinner</th>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
+                            <TableContainer component={Paper}>
+                                <Table sx={ { minWidth: 850 } } aria-label="simple table" >
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell></TableCell>
+                                            <TableCell align="left">Sunday</TableCell>
+                                            <TableCell align="left">Monday</TableCell>
+                                            <TableCell align="left">Tuesday</TableCell>
+                                            <TableCell align="left">Wednesday</TableCell>
+                                            <TableCell align="left">Thursday</TableCell>
+                                            <TableCell align="left">Friday</TableCell>
+                                            <TableCell align="left">Saturday</TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    
+                                    <TableBody>
+                                        { rows.map( ( row ) => (
+                                            <TableRow
+                                                key={ row.name }
+                                                sx={ { '&:last-child td, &:last-child th': { border: 0 } } }
+                                            >
+                                                <TableCell component="th" scope="row">
+                                                    { row.name }
+                                                </TableCell>
+                                                
+                                                <TableCell align="left"> { row.sun } </TableCell>
+                                                <TableCell align="left"> { row.mon } </TableCell>
+                                                <TableCell align="left"> { row.tue } </TableCell>
+                                                <TableCell align="left"> { row.wed } </TableCell>
+                                                <TableCell align="left"> { row.thurs } </TableCell>
+                                                <TableCell align="left"> { row.fri } </TableCell>
+                                                <TableCell align="left"> { row.sat } </TableCell>
+                                            
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
 
                         </div>
                     </div>
