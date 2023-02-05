@@ -94,37 +94,54 @@ function Results() {
     // { dh_visits } dining hall visits per day
     // { points_left } points left after the DH.
 
-    const [ Sunday1, SetSunday1 ] = useState();
-    const [ Monday1, SetMonday1 ] = useState();
-    const [ Tuesday1, SetTuesday1 ] = useState();
-    const [ Wednesday1, SetWednesday1 ] = useState();
-    const [ Thursday1, SetThursday1 ] = useState();
-    const [ Friday1, SetFriday1 ] = useState();
-    const [ Saturday1, SetSaturday1 ] = useState();
+    // const [ Sunday1, SetSunday1 ] = useState( "" );
+    // const [ Monday1, SetMonday1 ] = useState();
+    // const [ Tuesday1, SetTuesday1 ] = useState();
+    // const [ Wednesday1, SetWednesday1 ] = useState();
+    // const [ Thursday1, SetThursday1 ] = useState();
+    // const [ Friday1, SetFriday1 ] = useState();
+    // const [ Saturday1, SetSaturday1 ] = useState();
 
-    const [ Sunday2, SetSunday2 ] = useState();
-    const [ Monday2, SetMonday2 ] = useState();
-    const [ Tuesday2, SetTuesday2 ] = useState();
-    const [ Wednesday2, SetWednesday2 ] = useState();
-    const [ Thursday2, SetThursday2 ] = useState();
-    const [ Friday2, SetFriday2 ] = useState();
-    const [ Saturday2, SetSaturday2 ] = useState();
-
-    if( final > 23 ) {
-        // café is possible
-        SetSunday1( "Café" );
-    }
+    // const [ Sunday2, SetSunday2 ] = useState();
+    // const [ Monday2, SetMonday2 ] = useState();
+    // const [ Tuesday2, SetTuesday2 ] = useState();
+    // const [ Wednesday2, SetWednesday2 ] = useState();
+    // const [ Thursday2, SetThursday2 ] = useState();
+    // const [ Friday2, SetFriday2 ] = useState();
+    // const [ Saturday2, SetSaturday2 ] = useState();
 
 
+    var Sunday1 = "";
+    var Monday1 = "";
+    var Tuesday1 = "";
+    var Wednesday1 = "";
+    var Thursday1 = "";
+    var Friday1 = "";
+    var Saturday1 = "";
+
+    var Sunday2 = "";
+    var Monday2 = "";
+    var Tuesday2 = "";
+    var Wednesday2 = "";
+    var Thursday2 = "";
+    var Friday2 = "";
+    var Saturday2 = "";
+    
+    
     function createData( name, sun, mon, tue, wed, thurs, fri, sat ) {
         return { name, sun, mon, tue, wed, thurs, fri, sat };
     }
-      
+    
+    if( final > 23 ) {
+        // café is possible
+        Sunday1 = "Café"
+        Sunday2 = "Dining Hall"
+    }
+    
     const rows = [
         createData( "Meal 1", Sunday1, Monday1, Tuesday1, Wednesday1, Thursday1, Friday1, Saturday1 ),
         createData( 'Meal 2', Sunday2, Monday2, Tuesday2, Wednesday2, Thursday2, Friday2, Saturday2 ),
     ];
-
 
     return (
         <>
