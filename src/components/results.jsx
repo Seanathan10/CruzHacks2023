@@ -161,7 +161,7 @@ function Results() {
         console.log( "here2" )
     }
     
-    if( dh_visits === 1 && final < 8.28 ) {
+    if( dh_visits === 1 ) {
         Sunday1 = "Perk";
         Sunday2 = "Dining Hall";
 
