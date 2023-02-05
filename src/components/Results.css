@@ -18,5 +18,22 @@
 .text {
     color: white;
     font-size: 50px;
-    font-family: "Roboto";
+    font-family: "Comic Sans MS";
+}
+
+@keyframes color-change {
+    0% { color: red; }
+    20% { color: yellow }
+    40% { color: lime; }
+    60% { color: blue; }
+    80% { color: purple; }
+    90% { color: pink; }
+    100% { color: red; }
+}
+
+.Title2 {
+    color: blue;
+    animation: color-change 5s infinite;
+    padding: 2rem;
+    transition: all 0.5s ease-in-out;
 }

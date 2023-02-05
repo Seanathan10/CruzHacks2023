@@ -24,8 +24,8 @@ function UpperBar() {
 
     return(
         <div>
-            <AppBar position="static" elevation={ 0 } color="transparent">
-                <Toolbar variant="regular">
+            <AppBar color="transparent" sx={ { backdropFilter: 'blur( 15px )' } } elevation={ 10 } >
+                <Toolbar variant="regular" position="sticky" >
                     <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={ () => nav( "/" ) }>
                         <ArrowBackIcon/>
                     </IconButton>
@@ -84,15 +84,26 @@ function Results() {
     let diff_days = difference / (1000 * 3600 * 24);
     console.log( diff_days );
 
+    diff_days = diff_days.toFixed( 1 );
+
+    var final = amount / diff_days
+    final = final.toFixed( 2 )
+
+    
     // Mar 17 2023
 
     return (
         <>
             <UpperBar/>
             <div className='container'>
-                <Stack spacing={ 1 }>
-                    <p className='text'>{ amount }</p>
-                    <p className='text'>{ amount / diff_days }</p>
+                <Stack spacing={ 0 }>
+                    <div>
+
+                        <p className='text Title2'>You have { amount } points.</p>
+                        <p className='text Title2'>Spend { final } points per day.</p>
+                        <p className='text Title2'>{ diff_days } days remaining.</p>
+
+                    </div>
                     { CanProceed ? <></> : <Button variant='contained' style={{ color: "black", backgroundColor: "#EEC643", fontFamily: "Roboto", margin: 0 }} startIcon={ <ArrowBackIcon/> } onClick={ () => nav( "/" ) }>Go back</Button> }
                 </Stack>
             </div>
