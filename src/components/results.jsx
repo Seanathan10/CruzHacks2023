@@ -1,7 +1,6 @@
 import './Results.css';
 
 import React from 'react';
-import { useState } from 'react';
 
 import { Stack } from '@mui/material';
 import { Button } from '@mui/material';
@@ -88,27 +87,6 @@ function Results() {
     let points_left = final - ( dh_visits * 8.28 )
     points_left = points_left.toFixed( 2 )
 
-    // You have { amount } points.
-    // Spend { final } points per day.
-    // { days_remaining } days remaining.
-    // { dh_visits } dining hall visits per day
-    // { points_left } points left after the DH.
-
-    // const [ Sunday1, SetSunday1 ] = useState( "" );
-    // const [ Monday1, SetMonday1 ] = useState();
-    // const [ Tuesday1, SetTuesday1 ] = useState();
-    // const [ Wednesday1, SetWednesday1 ] = useState();
-    // const [ Thursday1, SetThursday1 ] = useState();
-    // const [ Friday1, SetFriday1 ] = useState();
-    // const [ Saturday1, SetSaturday1 ] = useState();
-
-    // const [ Sunday2, SetSunday2 ] = useState();
-    // const [ Monday2, SetMonday2 ] = useState();
-    // const [ Tuesday2, SetTuesday2 ] = useState();
-    // const [ Wednesday2, SetWednesday2 ] = useState();
-    // const [ Thursday2, SetThursday2 ] = useState();
-    // const [ Friday2, SetFriday2 ] = useState();
-    // const [ Saturday2, SetSaturday2 ] = useState();
 
 
     var Sunday1 = "";
@@ -132,10 +110,49 @@ function Results() {
         return { name, sun, mon, tue, wed, thurs, fri, sat };
     }
     
-    if( final > 23 ) {
+    if( final > 23 && CanProceed ) {
         // café is possible
-        Sunday1 = "Café"
-        Sunday2 = "Dining Hall"
+        Sunday1 = "Café";
+        Sunday2 = "Dining Hall";
+
+        Monday1 = "Café";
+        Monday2 = "Dining Hall";
+
+        Tuesday1 = "Café";
+        Tuesday2 = "Dining Hall";
+
+        Wednesday1 = "Café";
+        Wednesday2 = "Dining Hall";
+
+        Thursday1 = "Café";
+        Thursday2 = "Dining Hall";
+
+        Friday1 = "Café";
+        Friday2 = "Dining Hall";
+
+        Saturday1 = "Café";
+        Saturday2 = "Dining Hall";
+    } else if( CanProceed ) {
+        Sunday1 = "Dining Hall";
+        Sunday2 = "Dining Hall";
+
+        Monday1 = "Dining Hall";
+        Monday2 = "Dining Hall";
+
+        Tuesday1 = "Dining Hall";
+        Tuesday2 = "Dining Hall";
+
+        Wednesday1 = "Dining Hall";
+        Wednesday2 = "Dining Hall";
+
+        Thursday1 = "Dining Hall";
+        Thursday2 = "Dining Hall";
+
+        Friday1 = "Dining Hall";
+        Friday2 = "Dining Hall";
+
+        Saturday1 = "Dining Hall";
+        Saturday2 = "Dining Hall";
     }
     
     const rows = [
@@ -145,6 +162,8 @@ function Results() {
 
     return (
         <>
+        { CanProceed ? <>
+        
             <UpperBar/>
             <div className='container'>
                 <Stack spacing={ 0 }>
@@ -158,7 +177,7 @@ function Results() {
                                 <br></br>
                                 You have to spend ${ final } points per day.
                                 <br></br>
-                                You can visit the dining hall { dh_visits } times each day.
+                                You can visit the dining hall up to { dh_visits } times each day.
                                 <br></br>
                                 After the D.H., you'll still have to spend ${ points_left } that same day.
                                 <br></br>
@@ -207,9 +226,20 @@ function Results() {
 
                         </div>
                     </div>
-                    { CanProceed ? <></> : <Button variant='contained' style={{ color: "black", backgroundColor: "#EEC643", fontFamily: "Roboto", margin: 0 }} startIcon={ <ArrowBackIcon/> } onClick={ () => nav( "/" ) }>Go back</Button> }
+                    
                 </Stack>
             </div>
+        
+        </> : 
+        
+        <Button
+            variant='contained'
+            style={{ color: "black", backgroundColor: "#EEC643", fontFamily: "Roboto", margin: 0 }}
+            startIcon={ <ArrowBackIcon/> }
+            onClick={ () => nav( "/" ) } >Go back</Button> }
+
+
+            
         </>
     )
 }
