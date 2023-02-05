@@ -1,3 +1,5 @@
+@import url( 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' );
+
 .container {
     display: grid;
     align-items: center;
@@ -55,4 +57,59 @@
     animation: animate 3s infinite, color-change 5s infinite;
     padding: 2rem;
     transition: all 0.5s ease-in-out;
+}
+
+.resultspagetable {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Calendar {
+    background-color: rgba( 255, 255, 255, 0.8 );
+    /* background: linear-gradient( 45deg, yellow, blue ); */
+    border-collapse: collapse;
+}
+
+th {
+    font-family: "Roboto";
+    font-size: 26px;
+    padding: .6rem;
+}
+
+td {
+    font-family: "Roboto";
+    font-size: 20px;
+    padding: .6rem;
+}
+
+tr:hover {
+    background-color: #D6EEEE;
+}
+
+.TableDivision {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 25px;
+}
+
+.infobox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    font-family: "Roboto";
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+
+    background-color: #162F65;
+    margin-bottom: 2rem;
+    padding: 1.3rem;
+    border-radius: 15px;
+
+    
 }

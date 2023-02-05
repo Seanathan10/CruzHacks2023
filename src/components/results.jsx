@@ -89,6 +89,17 @@ function Results() {
     var final = amount / diff_days
     final = final.toFixed( 2 )
 
+    let dh_visits = Math.floor( final / 8.28 )
+    let days_remaining = Math.floor( diff_days )
+
+    let points_left = final - ( dh_visits * 8.28 )
+    points_left = points_left.toFixed( 2 )
+
+    // You have { amount } points.
+    // Spend { final } points per day.
+    // { days_remaining } days remaining.
+    // { dh_visits } dining hall visits per day
+    // { points_left } points left after the DH.
     
     // Mar 17 2023
 
@@ -97,12 +108,69 @@ function Results() {
             <UpperBar/>
             <div className='container'>
                 <Stack spacing={ 0 }>
-                    <div>
+                    <div className='resultspagetable'>
 
-                        <p className='text Title2'>You have { amount } points.</p>
-                        <p className='text Title2'>Spend { final } points per day.</p>
-                        <p className='text Title2'>{ diff_days } days remaining.</p>
+                        <div className="TableDivision" >
 
+                            <div className = "infobox">
+
+                                You have ${ amount } slug points.
+                                <br></br>
+                                You have to spend ${ final } points per day.
+                                <br></br>
+                                You can visit the dining hall { dh_visits } times each day.
+                                <br></br>
+                                After the D.H., you'll still have to spend ${ points_left } that same day.
+                                <br></br>
+                                There are { days_remaining } days until the term ends.
+
+                            </div>
+                       
+
+                            <table border="1" className="Calendar" >
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <th>Sunday</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                    <th>Saturday</th>
+                                </tr>
+                                <tr>
+                                    <th>Breakfast</th>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <th>Lunch</th>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <th>Dinner</th>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+
+                        </div>
                     </div>
                     { CanProceed ? <></> : <Button variant='contained' style={{ color: "black", backgroundColor: "#EEC643", fontFamily: "Roboto", margin: 0 }} startIcon={ <ArrowBackIcon/> } onClick={ () => nav( "/" ) }>Go back</Button> }
                 </Stack>
