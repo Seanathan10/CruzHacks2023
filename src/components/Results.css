@@ -23,7 +23,7 @@
 
 @keyframes color-change {
     0% { color: red; }
-    20% { color: yellow }
+    20% { color: yellow; }
     40% { color: lime; }
     60% { color: blue; }
     80% { color: purple; }
@@ -31,9 +31,28 @@
     100% { color: red; }
 }
 
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+}
+
+@keyframes animate {
+    0% {
+        transform: rotateX( -30deg ) rotateY( 0deg ) scaleX( 3.5 ) scaleY( 2.5 );
+    }
+
+    100% {
+        transform: rotateX( -30deg ) rotateY( 360deg ) scaleX( 1 ) scaleY( 1 );
+    }
+}
+
 .Title2 {
     color: blue;
-    animation: color-change 5s infinite;
+    animation: animate 3s infinite, color-change 5s infinite;
     padding: 2rem;
     transition: all 0.5s ease-in-out;
 }
