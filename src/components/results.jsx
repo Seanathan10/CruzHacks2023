@@ -1,4 +1,7 @@
+import './Results.css';
+
 import React from 'react';
+import { useState } from 'react';
 
 import { Stack } from '@mui/material';
 import { Button } from '@mui/material';
@@ -7,7 +10,6 @@ import { Toolbar } from '@mui/material';
 import { IconButton } from '@mui/material';
 import { Typography } from '@mui/material';
 
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -20,11 +22,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableContainer from '@mui/material/TableContainer';
 
-// import { createTheme } from '@mui/material';
-// import { ThemeProvider } from '@mui/material';
-
-import './Results.css';
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 function UpperBar() {
@@ -46,16 +44,6 @@ function UpperBar() {
         </div>
     )
 }
-
-
-// const darkTheme = createTheme({
-//     palette: {
-//       mode: 'light',
-//       primary: {
-//         main: '#011638',
-//       },
-//     },
-//   });
 
 
 function Results() {
@@ -85,12 +73,9 @@ function Results() {
     let Today = new Date();
     let EndDate = new Date( "03/24/2023" );
 
-    console.log( Today );
-    console.log( EndDate );
 
     let difference = EndDate.getTime() - Today.getTime();
     let diff_days = difference / (1000 * 3600 * 24);
-    console.log( diff_days );
 
     diff_days = diff_days.toFixed( 1 );
 
@@ -108,32 +93,37 @@ function Results() {
     // { days_remaining } days remaining.
     // { dh_visits } dining hall visits per day
     // { points_left } points left after the DH.
-    
-    // Mar 17 2023
 
-    // var the_table = document.getElementById( "DiningTable" );
-    // var rows = the_table.rows.length;
+    const [ Sunday1, SetSunday1 ] = useState();
+    const [ Monday1, SetMonday1 ] = useState();
+    const [ Tuesday1, SetTuesday1 ] = useState();
+    const [ Wednesday1, SetWednesday1 ] = useState();
+    const [ Thursday1, SetThursday1 ] = useState();
+    const [ Friday1, SetFriday1 ] = useState();
+    const [ Saturday1, SetSaturday1 ] = useState();
 
-    // for( var i = 0; i < rows; i++ ) {
-    //     var Cells = the_table.rows.item( i ).cells;
-    //     var cellLength = Cells.length;
+    const [ Sunday2, SetSunday2 ] = useState();
+    const [ Monday2, SetMonday2 ] = useState();
+    const [ Tuesday2, SetTuesday2 ] = useState();
+    const [ Wednesday2, SetWednesday2 ] = useState();
+    const [ Thursday2, SetThursday2 ] = useState();
+    const [ Friday2, SetFriday2 ] = useState();
+    const [ Saturday2, SetSaturday2 ] = useState();
 
-    //     for( var j = 0; j < cellLength; j++ ){
-    //         var cellVal = Cells.item( j ).innerHTML;
-    //     }
-    // }
+    if( final > 23 ) {
+        // café is possible
+        SetSunday1( "Café" );
+    }
+
 
     function createData( name, sun, mon, tue, wed, thurs, fri, sat ) {
         return { name, sun, mon, tue, wed, thurs, fri, sat };
     }
-
-    
       
     const rows = [
-        createData( "Meal 1", ),
-        createData( 'Meal 2', ),
+        createData( "Meal 1", Sunday1, Monday1, Tuesday1, Wednesday1, Thursday1, Friday1, Saturday1 ),
+        createData( 'Meal 2', Sunday2, Monday2, Tuesday2, Wednesday2, Thursday2, Friday2, Saturday2 ),
     ];
-
 
 
     return (
@@ -208,3 +198,4 @@ function Results() {
 }
 
 export default Results
+

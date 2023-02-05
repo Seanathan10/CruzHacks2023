@@ -12,9 +12,10 @@
     /* background-color: #4d944b; */
     /* background-color: #4d4b94; */
     /* background: linear-gradient( 45deg, yellow, blue ); */
-    background-image: url( "https://freepngimg.com/download/artwork/177141-photos-vector-picsart-forest-hd-image-free.png" ), linear-gradient( 360deg, rgb(249, 230, 103), rgba(59, 124, 244, 0.924) );
-    background-position: bottom;
-    background-repeat: no-repeat;
+    /* background-image: url( "https://freepngimg.com/download/artwork/177141-photos-vector-picsart-forest-hd-image-free.png" ), linear-gradient( 360deg, rgb(249, 230, 103), rgba(59, 124, 244, 0.924) ); */
+    background-image: url( "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_XAOlW6X8H-8jCvOYxx5vcpt2i7SJAvLSJGCng9ZMQQ&s" ), linear-gradient( 360deg, rgb(249, 230, 103), rgba(59, 124, 244, 0.924) );
+    /* background-position: bottom; */
+    /* background-repeat: no-repeat; */
 }
 
 .text {
