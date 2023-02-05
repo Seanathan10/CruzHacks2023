@@ -132,7 +132,11 @@ function Results() {
 
         Saturday1 = "Café";
         Saturday2 = "Dining Hall";
-    } else if( CanProceed ) {
+
+        console.log( 'here1' )
+    }
+    
+    if( CanProceed && dh_visits >= 2 ) {
         Sunday1 = "Dining Hall";
         Sunday2 = "Dining Hall";
 
@@ -153,6 +157,33 @@ function Results() {
 
         Saturday1 = "Dining Hall";
         Saturday2 = "Dining Hall";
+
+        console.log( "here2" )
+    }
+    
+    if( dh_visits === 1 && final < 8.28 ) {
+        Sunday1 = "Perk";
+        Sunday2 = "Dining Hall";
+
+        Monday1 = "Perk";
+        Monday2 = "Dining Hall";
+
+        Tuesday1 = "Perk";
+        Tuesday2 = "Dining Hall";
+
+        Wednesday1 = "Perk";
+        Wednesday2 = "Dining Hall";
+
+        Thursday1 = "Perk";
+        Thursday2 = "Dining Hall";
+
+        Friday1 = "Perk";
+        Friday2 = "Dining Hall";
+
+        Saturday1 = "Perk";
+        Saturday2 = "Dining Hall";
+
+        console.log( "Here3" )
     }
     
     const rows = [

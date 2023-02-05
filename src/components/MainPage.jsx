@@ -53,7 +53,6 @@ const StyledField = styled ( TextField ) ( {
 });
 
 
-
 function MainPage() {
   const nav = useNavigate();
   const [ Amount, SetAmount ] = useState( false );
